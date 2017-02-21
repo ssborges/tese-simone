@@ -16,7 +16,7 @@
 	%spanish,			% idioma adicional para hifenização
 	%english,			% idioma adicional para hifenização
 	%brazil				% o último idioma é o principal do documento
-\documentclass[mestrado, spanish, english, brazil]{packages/icmc}
+\documentclass[doutorado, pre-defesa, brazil, english]{packages/icmc}
 
 % ---
 % Pacotes Opcionais
@@ -26,19 +26,45 @@
 % Este pacote pode conflitar com outros pacotes gráficos como o ``pictex''
 % Então é necessário usar apenas um dos pacotes conflitantes
 
+
+%---------------------------------
+%pacotes que eu adicionei
+%---------------------------------
+\usepackage{todonotes}
+\usepackage{xcolor}
+
+% acronyms
+\usepackage{acronym}
+
+\usepackage{lipsum}
+
+%---------------------------------
+%pacotes que eu adicionei - FIM
+%---------------------------------
+
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+
 \newcommand{\VerbL}{0.52\textwidth}
 \newcommand{\LatL}{0.42\textwidth}
 
+% Comando simples para exibir comandos Latex no texto
+\newcommand{\comando}[1]{\textbf{$\backslash$#1}}
+\newcommand\myworries[1]{\textcolor{red}{#1}}
 
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Modelo de Teses e Dissertações em LaTeX do ICMC}
-\autor[Antonelli, H. L.]{Humberto Lidio Antonelli}
-\orientador[Orientadora]{Profa. Dra.}{Renata Pontin de Mattos Fortes}
-%\coorientador{Prof. Dr.}{Fulano de Tal}
+% Keywords: Harnessing Gamification Techniques to Cope with Learner’s Motivation 
+% Persuasion technology, persuasion profiling
+\titulo{ "to do" ... on Constraint-Based Group Formation}
+\autor[Borges, S. de S.]{Simone de Sousa Borges}
+\orientador[Advisor]{Prof. Dr.}{Seiji Isotani}
+
 \curso{CCMC}
-\data{5}{5}{2015} % Data do depósito
+\data{3}{4}{2017} % Data do depósito
 % ---
 
 
@@ -49,23 +75,18 @@
 % Resumo em português
 % conter no máximo 500 palavras
 \textoresumo{
-    Este trabalho é um breve modelo  para a escrita de monografias de qualificação, dissertações e teses utilizando o ambiente \LaTeX, de acordo com as normas exigidas pelo Instituto de Ciências Matemáticas e de Computação (ICMC), da Universidade de São Paulo (USP). Para a confecção deste modelo foi utilizado a última versão (1.9.2) do pacote de classes \textit{abnTeX2} que segue as normas da Associação Brasileira de Normas Técnicas. A elaboração de uma monografia, dissertação ou tese pode ser feita sobrescrevendo o conteúdo deste modelo. 
-    }{Modelo, Monografia de qualificação, Dissertação, Tese, Latex}
+    Este trabalho é ... 
+    
+    }{Gamificação, Techonologia Persuasiva, Aprendizagem Colaborativa com Suporte Computacional }
 
 % ---
 % resumo em inglês
 % ---
 \textoresumo[english]{
-    This paper is a brief model for writing qualification monographs, dissertations and thesis using \LaTeX environment, in accordance with the standards required by the Institute of Mathematics and Computer Sciences (ICMC), University of São Paulo (USP). For making this model, the latest version (1.9.2) \textit{abnTeX2} classes package was used. This package follow the rules of the Brazilian Association of Technical Standards. A drafting a monograph, dissertation or thesis can be done by overwriting the contents of this model.
-    }{Template, Qualification monograph, Dissertation, Thesis, Latex}
-
-% ---
-% resumo em espanhol
-% ---
-\textoresumo[spanish]{
-    Este trabajo es un breve modelo para la redacción de monografías de cualificación, disertaciones y tesis utilizando el ambiente LaTeX, de acuerdo a las normas exigidas por el Instituto de Ciencias Matemáticas y Computación (ICMC) de la Universidad de São Paulo (USP). Para la confección de este modelo fue utilizada la última versión (1.9.1) del paquete de clases abnTeX2 que sigue las normas de la Asociación Brasilera de Normas Técnicas. La elaboración de una monografía, disertación o tesis puede ser realizada reescribiendo el contenido de este modelo.
-    }{Template, Monografías de cualificación, Disertacion, Tesis, Latex}
-    
+    This study ...
+    group formation in CSCL refers to the process of adequately select and group students together to create scenarios and situations that help the learning process to occur more efficiently and smoothly. When groups are created randomly or without careful considerations, collaborative learning may provoke inefficient interactions that compromise the learning process and the motivation of students. Thus, throughout the years, several studies have been investigating group formation initiatives in collaborative learning environments based on computational and pedagogical criteria.
+    }{Gamification, Persuasive Technology, Computer-Supported Collaborative Learning}
+   
     
 % ---
 % Configurações de aparência do PDF final
@@ -136,37 +157,34 @@
 % ----------------------------------------------------------
 \textual
 
-\chapter{Introdução}
+\chapter{Introduction}
 \label{chapter:introducao}
 \input{tex/introducao}
 
-\chapter{Instalando o abnTeX2}
-\label{chapter:instalando-abntex}
-\input{tex/instalando-abntex}
+\chapter{Computer-Supported Collaborative Learning}
+\label{chapter:background-cscl}
+\input{tex/background-cscl}
 
-\chapter{Orientações gerais}
-\label{chapter:orientacoes-gerais}
-\input{tex/orientacoes-gerais}
+\chapter{Gamification}
+\label{chapter:gamification}
+\input{tex/gamification}
 
-\chapter{Configuração dos elementos pré-textuais}
-\label{chapter:config-pre-textual}
-\input{tex/config-pre-textual}
+\chapter{Persuasive Technology}
+\label{chapter:persuasive-techonology}
+\input{tex/persuasive-techonolgy}
 
-\chapter{Corpos flutuantes}
-\label{chapter:corpos-flutuantes}
-\input{tex/corpos-flutuantes}
+\chapter{Method}
+\label{chapter:method}
+\input{tex/method}
 
-\chapter{Listas}
-\label{chapter:listas}
-\input{tex/listas}
+\chapter{Results}
+\label{chapter:results}
+\input{tex/results}
 
-\chapter{Ferramentas úteis}
-\label{chapter:ferramentas-uteis}
-\input{tex/ferramentas-uteis}
+\chapter{Discussions}
+\label{chapter:discussions}
+\input{tex/discussions}
 
-\chapter{Citações e referências}
-\label{chapter:citacoes}
-\input{tex/citacoes}
 
 
 % ---
@@ -205,17 +223,16 @@
 % ---
 \begin{apendicesenv}
 
-    \chapter{Documento básico usando a classe \textit{icmc}}
-    \label{chapter:documento-basico}
-    \input{tex/appendix/documento-basico}
-    
-    \chapter{Configuração do programa JabRef}
-    \label{chapter:configuracao-jabref}
-    \input{tex/appendix/configuracao-jabref}
+    \chapter{Group Formation in CSCL Environments: Systematic Mapping}
+    \label{chapter:gf_mapping}
+    \input{tex/appendix/gf_mapping}
+
+    \chapter{Gamification Applied to Education: Systematic Mapping}
+    \label{chapter:gamification_mapping}
+    \input{tex/appendix/gamification_mapping}
 
 \end{apendicesenv}
 % ---
-
 
 % ----------------------------------------------------------
 % Anexos
@@ -226,9 +243,9 @@
 % ---
 \begin{anexosenv}
 
-    \chapter{Páginas interessantes na Internet} 
-    \label{chapter:paginas-interessantes}
-    \input{tex/annex/paginas-interessantes}
+%    \chapter{Gameful Design, Serious Games, video Games, and Gamification} 
+%    \label{chapter:Game_related}
+%    \input{tex/annex/Game_related}
 
 \end{anexosenv}
 % ---

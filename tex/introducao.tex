@@ -1,24 +1,134 @@
-% Comando simples para exibir comandos Latex no texto
-\newcommand{\comando}[1]{\textbf{$\backslash$#1}}
+\section{Context}
 
-Este documento explica brevemente como trabalhar com a classe \LaTeX~\textit{icmc} para confeccionar trabalhos acadêmicos seguindo as normas da \sigla{ABNT}{Associação Brasileira de Normas Técnicas} e as \aspas{\textit{Diretrizes para apresentação de dissertações e teses da USP: documento eletrônico e impresso. Parte I (ABNT)}}, publicado pelo \sigla{SIBi}{Sistema Integrado de Bibliotecas} USP. O presente manual também atende as exigências prevista no regimento do Programa de Pós-graduação em \sigla{CCMC}{Ciências da Computação e Matemática Computacional} do \sigla{ICMC}{Instituto de Ciências Matemáticas e de Computação} da \sigla{USP}{Universidade de São Paulo}.
+Collaborative learning (CL) has been around for quite some time, but recently it gained prominence because of advances in computer technology (e.g., popularization of laptops, tablets, and smart phones) and the widespread use of Internet-based educational tools (e.g., LMSs and MOOCs) \cite{From_mirroring_to_guiding}. As pointed out by \citeonline{CSCL_historical_perspective}, Internet has brought up renewed interest in investigating the benefits of computer support when applied to CL. These advances have set the stage for Computer-Supported Collaborative Learning (CSCL), which is a pedagogical strategy where individuals study in groups, and knowledge is constructed through discussions, argumentation, exchange of ideas, conflict resolution, and so on \cite{CSCL_historical_perspective}. In such pedagogical strategy, computers play a key role in supporting the learning process by making feasible the design, orchestration and assessment of group activities in several different contexts and situations \cite{CSCL_and_Innovation}.
+Many studies have been investigating the benefits of CSCL \cite{CSCL_historical_perspective,Collaborative_Learning_Techniques,Theory-Driven_Group_Formation,Designing_for_interaction}. According to the community's findings, collaboration has a positive influence on the learning process, mainly when it is well designed and properly applied \cite{The_pedagogical_challenges_to_collaborative_technologies}. Thus, CSCL environments and CL activities should be carefully designed; otherwise, there is no guarantee that the learning results will meet students’ goals or teachers’ expectations \cite{Why_some_groups_fail,Collaborative_Learning_Techniques}. 
+
+Research efforts in CSCL are concentrated on the development of technologies to support the creation of \textit{situations} where people can \textit{interact} with each other, and as a desirable outcome, triggering \textit{learning mechanism} that can positively \textit{influence learning outcomes} \cite{What_do_you_mean_by}. The creation of computational systems to support CSCL demands a deep understanding of many concepts, among them one of the most important is the group formation process \cite{An_ontology_engineering_approach}. 
+Group formation is an umbrella term that covers several strategies, algorithms, techniques, and methods to cluster individuals according to several criteria \cite{Group_Formation_Algorithms}. Considering free collaboration does not produces systematic learning outcomes \cite{An_ontology_engineering_approach}, group formation plays a fundamental role in CSCL since it influences how students perceive the environment, interact with peers, use available didactic materials, and take part in learning activities \cite{Over-scripting_CSCL}. The main objective of  group formation is the creation of well-thought-out groups that will lead students to better interact with each other, thus maximizing the potential of better learning gains \cite{Designing_for_interaction,Collaborative_Learning_Techniques}. 
+Groups can be formed based on learners similar interests, needs, and competences; or, quite the opposite, groups can be based, for example, on complementary competences, however with common purposes \cite{Specifying_computer_supported_collaboration_scripts}. 
+
+Unlike teacher-fronted learning sessions (i.e., where teacher can control the interactions), the success of online group work is highly influenced by learners willingness to participate \cite{Causal_Relationships_Between}. However, several factors may interfere on such willingness. For instance, as pointed out in \cite{Gamification_of_Collaborative_Learning}, when scripts designed to support CL tasks are used, there are situations in which  these scripts can interfere with students’ motivation. 
+% --------------------------------------------------------------------
+% citar no cap de CSCL exemplos de situations e quais estou resolvendo
+% --------------------------------------------------------------------
+The interplay of motivation and cognition when students undertake collaborative group work is a research area that has not been fully investigated \cite{The_interrelationship_of_emotion_and_cognition}. Still, it can be a promising area, because the success of both individual and group learning is closely related to the motivation of the students \cite{Computer_supported_team_based_learning}. There are numerous different motivation construct analyses in the literature \cite{Self-determination_theory_and_the_facilitation}. Usually, these analyses share a common distinction between two topics: intrinsic and extrinsic motivation. Briefly, extrinsic motivators are external factors to the person that can influence his/her interest and attitudes, while intrinsic motivation is related to internal mental states able to trigger person’s predisposition towards interests and attitudes \cite{Beyond_Talk_Creating_Autonomous_Motivation}.
+
+Among other solutions, researchers and practitioners have been investigating how gamification-based alternatives can be used to motivate students in learning scenarios \cite{The_Gamification_of_Learning_and_Instruction,A_systematic_mapping,Does_Gamification_Work}. However, since gamification is highly context-dependent, ill-designed gamification solutions can lead to harmful effects instead of the expected benefits \cite{Demographic_differences_in_perceived_benefits,The_Bright_and_Dark_Sides_of_Gamification}. Moreover, few efforts have tried to investigate how to design appropriate gamified activities (e.g., environment’s design), meaningful rewards (e.g., suitable game elements), and proper players’ roles to positively influence learner's willingness to participate in group work \cite{A_Link_Between_Worlds}. 
+
+% -----------------------------------------------------
+% Problem Delimitation
+% -----------------------------------------------------
+\section{Problem Delimitation}
+Most group formation strategies found in the literature are focused on learner's cognitive dimension (learning path) as learning style and competences, for instance, while the motivational dimension (psychological path) has grabbed less attention (Appendix \ref{chapter:gf_mapping}). 
+This research suggests that gamification is one of the persuasive technology strategies that can capitalize on group formation support. We followed the threefold formula proposed by~\cite{the_craft_of_research} to flesh out the scope of this research:\footnote{
+\citeonline{the_craft_of_research} refer to research problem as \emph{practical} or \emph{conceptual problem} and potential contribution as \emph{significance}.
+}
+\begin{itemize}
+\item Research Problem
+\end{itemize}
+Group formation when imposed can influence learners' needs for autonomy, therefore impacting their willingness to join groups.
+
+\begin{itemize}
+\item Research Questions (RQs):
+	\begin{itemize}
+	\item RQ1: Can gamification be harnessed to support constraint-based group formation?
+    \item RQ2: Can gamification influence learners' willingness to join groups?
+	\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item Potential Contributions
+\end{itemize}
+
+% -----------------------------------------------------
+% Motivation
+% -----------------------------------------------------
+\section{Motivation}
+\begin{comment}
+FRANCESA
+The lack of psychological aspects in usual current User Models and Profiles has motivated this
+Thesis. Nowadays profiles with personal psychological details are not the main concern for web
+system designers and programmers. Some research has been made by Affective Computing
+scientists focusing mainly on the identification and modelling of user’s Emotions [RHR98],
+[OCC88], [Ort02], [Lis02], [ZC03], [Pic00], [Pic97], [Pic02], [LTC+00], [Ell92], [Pai00].
+Recently, studies from [Dam94], [Dam99], [Sim83], [Gol95], [Pai00], [Pic97], [Pic00], [Pic02],
+[TPP03], [Tha06] have demonstrated how important psychological aspects of people such as
+Personality Traits and Emotions are during the human decision-making process. Human Emotion and their models have already been largely implemented in computers, much more than Personality 
+
+VINA
+Testing tools are usually built on top of HLL VMs. As a result, they often end up tampering with the emergent computation. Usually, the additional layers between the program
+under test and the underlying HLL VM introduced by testing tools can have a pernicious
+effect on the emergent computation. Furthermore, during run time, when tools need to
+carry out computations about themselves (or the program under test) they must turn
+to costly metaprogramming operations (e.g., reflection). To examine a running program,
+for example, a tool has to perform introspection operations (i.e., inspecting state and
+structure). Likewise, to change the behavior or structure of the program under test during
+run time, tools have to resort to intercession (Lee and Zachary, 1995).
+Apart from the overhead incurred by reflective operations, tools that implement weak
+mutation rely heavily on state storage and retrieval. By storing state information these
+tools factor out the expense of running all mutants from the beginning. Nevertheless, such
+computational savings are only possible at the expense of a significantly larger memory
+footprint (Fleyshgakker and Weiss, 1994).
+\end{comment}
+
+% -----------------------------------------------------
+% Specific Objectives and Rationale
+% -----------------------------------------------------
+\section{Specific Objectives and Rationale}
+\begin{comment}
+\textit{The objective of this research is to investigate whether XXX are a
+cost-effective technology for supporting software testing. Towards this end, we set out
+to extend the infrastructure provided by a JIT-enabled JVM with software testing support.
+The rationale behind arguing that HLL VMs provide a sound basis for building an
+integrated mutation testing environment is that they bear a repertoire of runtime data
+structures suitable for accommodating the semantics of mutation testing. First, by capitalizing on existing runtime structures it is possible to decrease the amount of storage
+space required to implement weak mutation: from within the execution environment it is
+easier to determine what needs to be copied, narrowing the scope down and thus reducing
+storage requirements. Second, there is no need to resort to costly reflective operations since
+runtime information are readily available at HLL VM level. Third, by reifying mutation
+analysis concepts (i.e., turning them into first-class citizens within the scope of HLL VMs)
+it is easier to take advantage of high-end optimization and memory management features
+7Chapter 1 | Introduction
+which are common in mainstream HLL VM implementations, e.g., just-in-time (JIT) compilation and garbage collection (GC). Lastly, a further advantage of building on HLL VMs
+data structures is that they make it possible to exert greater control over the execution of
+mutants.
+As stated, the inherent non-determinism of concurrent programs makes software testing
+and debugging even more challenging. Therefore, a key missing element in modern execution environments is the ability to deterministically re-execute multithreaded programs.
+Since HLL VMs are the locus of control during execution, we conjecture that these execution environments contain facilities that can be extended to prune away non-deterministic
+behavior and enforce that subsequent executions cover distinct thread schedules from the
+ones previously run.
+The rationale behind settling on using a JVM realization to implement our VM-based
+mutation analysis environment is that, apart from being by far the most used HLL VM
+implementation within academic circles (Durelli et al., 2010), implementations of such
+execution environment have sophisticated, built-in multithread support. This makes for
+an infrastructure more suited to our integrated software testing environment because both
+the fork-and-join model to speed up mutants execution and the deterministic replayer
+heavily rely on thread support.}
+\end{comment}
+
+\subsection{Non Objectives}
+
+propose a new compilation of game elements, instead we investigated 
+
+In this thesis,we do not aim to propose another list of game design elements. Instead, our goal is to investigate whether the effects of a subset of game design elements (a subset that is not exhaustive) regularly discussed in the literature, can harness learner's psychological needs in a constraint-based group formation approach.
 
 
-A classe \textit{icmc} foi construída com base na última versão da classe \textit{abntex2} e do pacote \textit{abntex2cite}. Portanto, este documento exemplifica a elaboração de trabalho
-acadêmico (tese, dissertação e outros do gênero) produzido conforme a ABNT NBR
-14724:2011 \textit{Informação e documentação - Trabalhos acadêmicos - Apresentação}.
 
-Assim, é altamente recomendável que seja consultada a documentação do \textit{abntex2}\footnote{https://code.google.com/p/abntex2/downloads/list}. A classe \textit{abntex2} foi desenvolvida para facilitar a escrita de documentos seguindo as normas da ABNT no ambiente \LaTeX\;\cite{frasson:2005:classe_abnt}.
+% -----------------------------------------------------
+% Conventions Used Throughout this PhD Dissertation
+% -----------------------------------------------------
+\section{Conventions Used Throughout this PhD Dissertation}
 
-Todo o trabalho de pesquisa e ajustes da presente classe \LaTeX~\emph{icmc} foram feitos pelo aluno mestrado do Programa de Pós-graduação em Ciência da Computação e Matemática Computacional, Humberto Lidio Antonelli, durante a confecção da sua monografia de qualificação.
 
-O requisito básico para utilização da classe \textit{icmc} é criar um documento desta classe com o comando
-\comando{documentclass[@parameters]\{icmc\}} e ter, no diretório de trabalho, o arquivo \emph{icmc.cls} presente. Entretanto, recomenda-se fortemente manter a estrutura de diretório inicial fornecida por este modelo. Além disso, para que o documento esteja em conformidade com as normas exigidas pelo programa de Pós-Graduação, o \textbf{projeto deve ser compilado utilizando \textit{XeLaTeX} ou \textit{LuaLaTeX}}. Esse processo de compilação é necessário para que as fontes externas utilizadas para gerar a capa sejam incluídas.
+% -----------------------------------------------------
+% Structure of this PhD Dissertation
+% -----------------------------------------------------
+\section{Structure of this PhD Dissertation}
 
-Os parâmetros possíveis utilizados pelo \comando{documentclass} são:
-\begin{description}
-\item[qualificacao] Exclusivamente para monografias de qualificação em geral;
-\item[mestrado / doutorado] Identifica o curso ao qual o aluno pertence, sendo utilizado apenas uma das duas opcões disponíveis. O valor padrão é \textbf{doutorado};
-\item[pre-defesa / pos-defesa] Identifica a situação do documento (exceto para qualificação), sedo necessário apenas uma das duas opções. O valor padrão é \textbf{pos-defesa};
-\item[french, spanish, english, brazil] Adiciona o idioma para correta hifenização correta no documento. O último idioma declarado é o principal do documento. O valor padrão é \textbf{brazil}.
-\end{description}
+
+
+
+
+
+
+
